@@ -1,0 +1,46 @@
+html {
+  box-sizing: border-box;
+  font-family: Courier New, Courier, Lucida Sans Typewriter, Lucida Typewriter, monospace;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  min-width: 800px;
+}
+
+@supports (display: grid) {
+  .Background h2 {
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #000;
+    font-size: 18px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .Background input {
+    grid-area: 1/2/2/-1;
+    margin-left: 0.5rem;
+    border: none;
+    border-bottom: 2px dotted #000;
+  }
+  .Background__field {
+    display: grid;
+    grid-template-rows: auto auto;
+  }
+  .Background__field--3 {
+    grid-template-columns: auto repeat(3, 1fr);
+  }
+  .Background__field-hint {
+    justify-self: center;
+    font-size: 12px;
+  }
+  .Background__field-hint:first-of-type {
+    grid-column-start: 2;
+  }
+}
+
+/*# sourceMappingURL=godlike.css.map */

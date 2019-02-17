@@ -1,0 +1,62 @@
+// CLEANUP: prefix all non-"attr_" | "roll_" | "repeating_" with `sheet-`
+$prefix: '';
+
+$fontSizes: (
+  small: 12px,
+  normal: 16px,
+  large: 18px
+);
+
+// apply a natural box layout model to all elements, but allowing components to change
+// https://www.paulirish.com/2012/box-sizing-border-box-ftw/
+html {
+  box-sizing: border-box;
+  font-family: Courier New, Courier, Lucida Sans Typewriter, Lucida Typewriter, monospace;
+}
+
+*, 
+*:before, 
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  min-width: 800px;
+}
+
+@supports (display: grid) {
+  .#{$prefix}Background {
+    h2 {
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #000;
+      font-size: map-get($fontSizes, large);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    input {
+      grid-area: 1 / 2 / 2 / -1;
+      margin-left: 0.5rem;
+      border: none;
+      border-bottom: 2px dotted #000;
+    }
+
+    &__field {
+      display: grid;
+      grid-template-rows: auto auto;
+    }
+
+    &__field--3 {
+      grid-template-columns: auto repeat(3, 1fr);
+    }
+
+    &__field-hint {
+      justify-self: center;
+      font-size: map-get($fontSizes, small);
+
+      &:first-of-type {
+        grid-column-start: 2;
+      }
+    }
+  }
+}
