@@ -1,5 +1,7 @@
 html {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
   font-family: Courier New, Courier, Lucida Sans Typewriter, Lucida Typewriter, monospace;
 }
 
@@ -10,11 +12,30 @@ html {
 }
 
 body {
+  margin: 0 auto;
   min-width: 800px;
+  max-width: 1400px;
+  padding: 1rem;
+}
+
+input {
+  font-family: Courier New, Courier, Lucida Sans Typewriter, Lucida Typewriter, monospace;
+}
+
+label {
+  font-size: 14px;
 }
 
 @supports (display: grid) {
+  .Background {
+    display: grid;
+    grid-template: "heading heading heading heading heading heading" "service service name name name name" "gender nationality nationality nationality height weight" "age dob dob manifested manifested manifested" "education education education profession profession profession" "motive motive motive motive motive motive"/1fr 2fr 4fr 4fr 1fr 1fr;
+    grid-template-rows: auto repeat(5, 3rem);
+    grid-column-gap: 0.5rem;
+    align-items: start;
+  }
   .Background h2 {
+    grid-area: heading;
     margin-bottom: 1rem;
     border-bottom: 2px solid #000;
     font-size: 18px;
@@ -27,18 +48,66 @@ body {
     border: none;
     border-bottom: 2px dotted #000;
   }
+  .Background__age {
+    grid-area: age;
+  }
+  .Background__dob {
+    grid-area: dob;
+  }
+  .Background__education {
+    grid-area: education;
+  }
+  .Background__gender {
+    grid-area: gender;
+  }
+  .Background__height {
+    grid-area: height;
+  }
+  .Background__manifested {
+    grid-area: manifested;
+  }
+  .Background__motive {
+    grid-area: motive;
+  }
+  .Background__name {
+    grid-area: name;
+  }
+  .Background__nationality {
+    grid-area: nationality;
+  }
+  .Background__profession {
+    grid-area: profession;
+  }
+  .Background__service {
+    grid-area: service;
+  }
+  .Background__weight {
+    grid-area: weight;
+  }
   .Background__field {
     display: grid;
     grid-template-rows: auto auto;
   }
+  .Background__field--1 {
+    grid-template-columns: auto repeat(1, 1fr);
+  }
+  .Background__field--2 {
+    grid-template-columns: auto repeat(2, 1fr);
+  }
   .Background__field--3 {
     grid-template-columns: auto repeat(3, 1fr);
   }
-  .Background__field-hint {
-    justify-self: center;
-    font-size: 12px;
+  .Background__field--4 {
+    grid-template-columns: auto repeat(4, 1fr);
   }
-  .Background__field-hint:first-of-type {
+  .Background__field--5 {
+    grid-template-columns: auto repeat(5, 1fr);
+  }
+  .Background__fieldHint {
+    justify-self: center;
+    font-size: 11px;
+  }
+  .Background__fieldHint:first-of-type {
     grid-column-start: 2;
   }
 }
